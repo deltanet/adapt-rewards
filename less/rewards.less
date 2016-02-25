@@ -1,0 +1,31 @@
+.rewards {
+    
+    .rewards-inner {
+        float: left;
+        .dir-rtl & {
+            float: right;
+        }
+    }
+
+    .rewards-button {
+        float: left;
+        padding-right: 5px !important;
+        .dir-rtl & {
+            float: right;
+            padding-left: 5px !important;
+        }
+    }
+
+    .rewards-count {
+        padding-top: 5px;
+        color:@primary-color-inverted;
+        float: left;
+        .dir-rtl & {
+            float: right;
+        }
+        line-height: @sub-title-line-height;
+        font-weight: @font-weight-regular;
+        font-size: 16px;
+    }
+
+}
