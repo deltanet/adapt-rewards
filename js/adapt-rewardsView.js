@@ -15,7 +15,6 @@ define(function(require) {
                 this.listenTo(this.collection, 'change:_isCorrect', this.render);
             }
             this.render();
-            this.listenTo(Adapt, 'router:menu router:page', this.toggleVisibility);
         },
 
         events: {
@@ -32,20 +31,9 @@ define(function(require) {
                 score: score, 
                 rewards:data
             }));
-            this.toggleVisibility();
 
             // Add icon to button
             this.$('.rewards-button').addClass(Adapt.course.get('_rewards')._icon);
-        },
-
-        toggleVisibility: function() {
-            var model = Adapt.findById(Adapt.location._currentId);
-            if (model.get('_quiz')) {
-                this.$el.css({display:"block"});
-            } else {
-                this.$el.css({display:"none"});
-            }
-            this.$el.css({display:"block"});
         },
 
         openPrompt: function() {
