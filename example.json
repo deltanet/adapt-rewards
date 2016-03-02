@@ -3,10 +3,12 @@
 "_rewards": {
         "_isEnabled": true,
         "_icon": "icon-star",
+        "_countDown": false,
         "_isExternallyUpdated": false,
+        "_comment": "use {{score}}, {{maxScore}} to display the users current score and the total number of questions available",
         "_prompt": {
-            "title": "Achievements",
-            "body": "Throughout this module you can collect these stars.",
+            "title": "Rewards",
+            "body": "Throughout this module you can collect {{{maxScore}}} stars. So far you have collected {{{score}}}.",
             "_buttons": {
                 "close": "Continue"
             },

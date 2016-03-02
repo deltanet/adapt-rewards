@@ -11,18 +11,16 @@ define(function(require) {
         var Rewards = Adapt.course.get('_rewards');
 
         if (Rewards && Rewards._isEnabled) {
-
             // If rewards is enabled - filter question components into a collection
             questionComponents = new Backbone.Collection(Adapt.components.where({_isQuestionType: true}));
 
             if (Rewards._isExternallyUpdated) {
                 isExternallyUpdated = true;
             }
-
             // Only setup navigation event listener if rewards is enabled
             setupNavigationEvent();
 
-        }        
+        }
         
         if (isExternallyUpdated) {
 	        var diffuseAssessment = Adapt.course.get('_diffuseAssessment');

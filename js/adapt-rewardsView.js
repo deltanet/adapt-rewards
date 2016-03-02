@@ -22,18 +22,34 @@ define(function(require) {
         },
 
         render: function(setScore) {
+            // Set vars for use with the body text
             var score = 0;
-            if (this.isExternallyUpdated) score = setScore;
-            else score = this.collection.where({_isCorrect: true}).length;
+            var numQuestions = this.collection.length;
+            
+            if(Adapt.course.get('_rewards')._countDown) {
+                score = this.collection.length;
+            }
+
+            if(Adapt.course.get('_rewards')._countDown) {
+                score = score - (this.collection.where({_isCorrect: false}).length);
+            } else {
+                score = this.collection.where({_isCorrect: true}).length;
+            }
+
             var data = this.collection.toJSON();
             var template = Handlebars.templates['rewards'];
             this.$el.html(template({
-                score: score, 
+                score: score,
                 rewards:data
             }));
 
             // Add icon to button
             this.$('.rewards-button').addClass(Adapt.course.get('_rewards')._icon);
+
+            var str = Adapt.course.get('_rewards')._prompt.body;
+            this.feedbackBody = str.replace(/{{{score}}}/g, score);
+            this.feedbackBody = this.feedbackBody.replace(/{{{maxScore}}}/g, numQuestions);
+
         },
 
         openPrompt: function() {
@@ -51,7 +67,7 @@ define(function(require) {
             var promptObject = {
                 header: rewardsPromptModel._graphic.src,
                 title: rewardsPromptModel.title,
-                body: rewardsPromptModel.body,
+                body: this.feedbackBody,
                 _prompts:[
                     {
                         promptText: rewardsPromptModel._buttons.cancel,
