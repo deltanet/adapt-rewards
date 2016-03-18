@@ -9,7 +9,7 @@ adapt-rewards
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-rewards/graphs/contributors)     
 **Accessibility support:** no  
 **RTL support:** Yes     
-**Authoring tool support:** no
+**Authoring tool support:** yes
 
 ----------------------------
 
