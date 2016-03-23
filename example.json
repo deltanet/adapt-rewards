@@ -4,6 +4,7 @@
         "_isEnabled": true,
         "_icon": "icon-star",
         "_countDown": false,
+        "_trackCorrect": true,
         "_isExternallyUpdated": false,
         "_comment": "use {{score}}, {{maxScore}} to display the users current score and the total number of questions available",
         "_prompt": {
