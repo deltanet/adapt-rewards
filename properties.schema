@@ -43,6 +43,22 @@
                   "validators": [],
                   "help": "Count down completion of rewards"
                 },
+                "_trackCorrect": {
+                  "type":"boolean",
+                  "required":true,
+                  "title": "Track Correct",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Track correctly answered questions to total up in the rewards"
+                },
+                "_trackPartlyCorrect": {
+                  "type":"boolean",
+                  "required":true,
+                  "title": "Track Partly Correct",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Track partly correct answered questions and score half a point as a reward"
+                },
                 "_isExternallyUpdated": {
                   "type":"boolean",
                   "required":true,

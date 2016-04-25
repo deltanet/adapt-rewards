@@ -29,11 +29,16 @@ define(function(require) {
             if(Adapt.course.get('_rewards')._countDown) {
                 score = this.collection.length;
             }
+            
             // If countdown is enabled
             if(Adapt.course.get('_rewards')._countDown) {
                 // If the counter is to countdown when a question is correct
                 if(Adapt.course.get('_rewards')._trackCorrect) {
-                    score = score - (this.collection.where({_isCorrect: true}).length);
+                    if(Adapt.course.get('_rewards')._trackPartlyCorrect) {
+                        score = score - (this.collection.where({_isCorrect: true}).length + ((this.collection.where({_isAtLeastOneCorrectSelection: true}).length)/2));
+                    } else {
+                        score = score - (this.collection.where({_isCorrect: true}).length);
+                    }
                 } else {
                     // If the counter is to countdown when a question is incorrect
                     score = score - (this.collection.where({_isCorrect: false}).length);
@@ -43,12 +48,15 @@ define(function(require) {
 
                 // If the counter is to countdown when a question is correct
                 if(Adapt.course.get('_rewards')._trackCorrect) {
-                    score = this.collection.where({_isCorrect: true}).length;
+                    if(Adapt.course.get('_rewards')._trackPartlyCorrect) {
+                        score = this.collection.where({_isCorrect: true}).length + ((this.collection.where({_isAtLeastOneCorrectSelection: true}).length)/2);
+                    } else {
+                        score = this.collection.where({_isCorrect: true}).length;
+                    }
                 } else {
                     // If the counter is to countdown when a question is incorrect
                     score = this.collection.where({_isCorrect: false}).length;
                 }
-
             }
 
             var data = this.collection.toJSON();
