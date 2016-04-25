@@ -12,7 +12,103 @@
           "type":"object"
         },
         "course": {
-          "type":"object"
+          "type":"object",
+          "properties":{
+            "_rewards": {
+              "type":"object",
+              "required":false,
+              "legend": "Rewards",
+              "properties":{
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "title": "Enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Turns Rewards on and off. Acceptable values are true and false."
+                },
+                "_icon": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Icon",
+                  "default": "icon-info",
+                  "inputType": "Text",
+                  "validators": []
+                },
+                "_countDown": {
+                  "type":"boolean",
+                  "required":true,
+                  "title": "Count Down",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Count down completion of rewards"
+                },
+                "_isExternallyUpdated": {
+                  "type":"boolean",
+                  "required":true,
+                  "title": "Updated Externally",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": []
+                },
+                "_comment": {
+                  "type": "string",
+                  "required": false,
+                  "title": "Comment",
+                  "default": "icon-info",
+                  "inputType": "TextArea",
+                  "validators": []
+                },
+                "_prompt": {
+                  "type":"object",
+                  "required":false,
+                  "properties":{
+                    "title": {
+                      "type": "string",
+                      "required": false,
+                      "title": "Title",
+                      "inputType": "Text",
+                      "validators": []
+                    },
+                    "Body": {
+                      "type": "string",
+                      "required": false,
+                      "title": "Body Text",
+                      "inputType": "Text",
+                      "validators": []
+                    },
+                    "_buttons": {
+                      "type":"object",
+                      "required":false,
+                      "properties":{
+                        "close": {
+                          "type": "string",
+                          "required": false,
+                          "title": "Close Button Text",
+                          "inputType": "Text",
+                          "validators": []
+                        }
+                      }
+                    },
+                    "_buttons": {
+                      "type":"object",
+                      "required":false,
+                      "properties":{
+                        "src": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "title": "Graphic",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Select a graphic to be used in the prompt"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "contentobject": {
           "type":"object"
